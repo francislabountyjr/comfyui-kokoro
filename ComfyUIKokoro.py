@@ -6,6 +6,7 @@ import os
 import requests
 from tqdm import tqdm
 import io
+import folder_paths
 
 logger = logging.getLogger(__name__)
 
@@ -155,7 +156,7 @@ class KokoroSpeaker:
 
     def __init__(self):
         self.kokoro = None
-        self.node_dir = os.path.dirname(os.path.abspath(__file__))
+        self.node_dir = os.path.join(folder_paths.models_dir, "tts", "kokoro")
         self.voices_path = os.path.join(self.node_dir, VOICES_FILENAME)
         self.model_path = os.path.join(self.node_dir, MODEL_FILENAME)
 
@@ -190,7 +191,7 @@ class KokoroSpeakerCombiner:
 
     def __init__(self):
         self.kokoro = None
-        self.node_dir = os.path.dirname(os.path.abspath(__file__))
+        self.node_dir = os.path.join(folder_paths.models_dir, "tts", "kokoro")
         self.voices_path = os.path.join(self.node_dir, VOICES_FILENAME)
         self.model_path = os.path.join(self.node_dir, MODEL_FILENAME)
 
@@ -233,7 +234,7 @@ class KokoroGenerator:
 
     def __init__(self):
         self.kokoro = None
-        self.node_dir = os.path.dirname(os.path.abspath(__file__))
+        self.node_dir = os.path.join(folder_paths.models_dir, "tts", "kokoro")
         self.model_path = os.path.join(self.node_dir, MODEL_FILENAME)
         self.voices_path = os.path.join(self.node_dir, VOICES_FILENAME)
 
