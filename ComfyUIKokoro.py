@@ -13,6 +13,7 @@ logger = logging.getLogger(__name__)
 MODEL_URL = "https://github.com/taylorchu/kokoro-onnx/releases/download/v0.2.0/kokoro.onnx"
 MODEL_FILENAME = "kokoro_v1.onnx"
 VOICES_FILENAME = "voices_v1.bin"
+MODEL_SUBDIR = "tts/kokoro"
 
 supported_languages_display = ["English", "English (British)","French", "Japanese", "Hindi", "Mandarin Chinese", "Spanish", "Brazilian Portuguese", "Italian"]
 
@@ -156,7 +157,7 @@ class KokoroSpeaker:
 
     def __init__(self):
         self.kokoro = None
-        self.node_dir = os.path.join(folder_paths.models_dir, "tts", "kokoro")
+        self.node_dir = os.path.join(folder_paths.models_dir, MODEL_SUBDIR)
         self.voices_path = os.path.join(self.node_dir, VOICES_FILENAME)
         self.model_path = os.path.join(self.node_dir, MODEL_FILENAME)
 
@@ -191,7 +192,7 @@ class KokoroSpeakerCombiner:
 
     def __init__(self):
         self.kokoro = None
-        self.node_dir = os.path.join(folder_paths.models_dir, "tts", "kokoro")
+        self.node_dir = os.path.join(folder_paths.models_dir, MODEL_SUBDIR)
         self.voices_path = os.path.join(self.node_dir, VOICES_FILENAME)
         self.model_path = os.path.join(self.node_dir, MODEL_FILENAME)
 
@@ -234,7 +235,7 @@ class KokoroGenerator:
 
     def __init__(self):
         self.kokoro = None
-        self.node_dir = os.path.join(folder_paths.models_dir, "tts", "kokoro")
+        self.node_dir = os.path.join(folder_paths.models_dir, MODEL_SUBDIR)
         self.model_path = os.path.join(self.node_dir, MODEL_FILENAME)
         self.voices_path = os.path.join(self.node_dir, VOICES_FILENAME)
 
